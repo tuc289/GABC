@@ -1,6 +1,6 @@
 # GABI (Genomic Analysis of Bacterial isolates)
 
-### Genomic Analysis of Bacterial isolates 
+### Genomic Analysis of Bacterial isolates workflow
 
 #### This workflow is designed to complete genome assembly with different sequencing technology
 
@@ -8,6 +8,13 @@
 2. [Oxford Nanopore (ONT)](https://nanoporetech.com/applications/dna-nanopore-sequencing) based whole genome sequencing data
 3. hybrid assembly using both 1 and 2
 
+## Table of Contents ##
+
+1. [Getting started](#getting_started)
+2. [Installation and Configuration](#install_and_configure)
+3. [Workflow](#workflow)
+
+<a name = "getting_started"></a>
 ## Getting started
 
 The goal of this workflow is to complete different genome assembly and downstream analyses of the whole genome sequencing data for bacterial isolates using different sequencing platforms (i.e., illumina and oxford nanopore (ONT)). Entire workflow is adapted and tested to the Penn State high performace computing system, so called [ROAR](https://www.icds.psu.edu/computing-services/roar-user-guide/).
@@ -51,6 +58,7 @@ The goal of this workflow is to complete different genome assembly and downstrea
 
 *and many more...*
 
+<a name = "install_and_configure"></a>
 ## Installation and configuration
 
 Since the entire workflow is counting on numerous different bioinformatics packages and/or tools, it is important to understand and install correctly for mitigating any potential issues. [Conda](https://docs.conda.io/en/latest/) is a wonderful tool for managing Package, dependency and environment. 
@@ -71,6 +79,7 @@ Since the entire workflow is counting on numerous different bioinformatics packa
 
 ##### Downstream analysis
 
+<a name = "workflow"></a>
 ## Workflow
 
 ##### Short-read assembly
