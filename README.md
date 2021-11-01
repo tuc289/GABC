@@ -1,18 +1,16 @@
-# GABI (Genomic Analysis of Bacillus isolates)
+# GABI (Genomic Analysis of Bacterial isolates)
 
-### Genomic Analysis of Bacillus isolates 
+### Genomic Analysis of Bacterial isolates 
 
-#### This workflow is designed to compare between 
+#### This workflow is designed to complete genome assembly with different sequencing technology
 
-1. illumina based short-read whole genome sequencing data 
-2. Oxford Nanopore (ONT) based whole genome sequencing data
+1. [illumina](https://www.illumina.com/techniques/sequencing/dna-sequencing/whole-genome-sequencing.html) based short-read whole genome sequencing data 
+2. [Oxford Nanopore (ONT)](https://nanoporetech.com/applications/dna-nanopore-sequencing) based whole genome sequencing data
 3. hybrid assembly using both 1 and 2
-
-* PSU HPC (aka ROAR) will be used for entire workflow
 
 ## Getting started
 
-The goal of this workflow is to complete different genome assembly and downstream analysis of whole genome sequencing data for *Bacillus* isolates using different sequencing platforms (i.e., illumina and oxford nanopore (ONT)). Entire workflow is adapted to the Penn State high performace computing system, so called [ROAR](https://www.icds.psu.edu/computing-services/roar-user-guide/). 
+The goal of this workflow is to complete different genome assembly and downstream analyses of the whole genome sequencing data for bacterial isolates using different sequencing platforms (i.e., illumina and oxford nanopore (ONT)). Entire workflow is adapted and tested to the Penn State high performace computing system, so called [ROAR](https://www.icds.psu.edu/computing-services/roar-user-guide/).
 
 #### Short-read WGS data assembly workflow (required package or tools)
 
@@ -45,10 +43,17 @@ The goal of this workflow is to complete different genome assembly and downstrea
 1. Detecct genes of interest of *Bacillus cereus* (**Btyper3**)
 2. Identify core SNPs (Single Nucleotide Polymorphism) (**kSNP3**)
 3. Control phylogenetic tree (**IQ-tree2**)
-4. Identify high-quality SNPs using [FDA CFSAN SNP](https://snp-pipeline.readthedocs.io/en/latest/readme.html) pipeline (in [GalaxyTrakr](https://galaxytrakr.org/root/login?redirect=%2F))
-* 
+4. Identify high-quality SNPs using [FDA CFSAN SNP](https://snp-pipeline.readthedocs.io/en/latest/readme.html) pipeline (in **[GalaxyTrakr](https://galaxytrakr.org/root/login?redirect=%2F)**)
+(GalaxyTrakr is not open to public - it is intended for use by GenomeTrakr laboratories and their collaborators to assist in the analysis of genomic data for foodborne pathogens)
+5. Annonate plasmids (long-read assembly and hybrid assembly only) (**TBD**)
+6. Detect antimicrobial resistance (AMR) genes (**Abricate**, **Megares**)
+7. Whole genome annotation and pangenome analysis (**Prokka**, **Roary**, **Scoary**)
+
+*and many more...*
 
 ## Installation and configuration
+
+Since the entire workflow is counting on numerous different bioinformatics packages and/or tools, it is important to understand and install correctly for mitigating any potential issues. [Conda](https://docs.conda.io/en/latest/) is a wonderful tool for managing Package, dependency and environment. 
 
 #### Connect to Roar
 
