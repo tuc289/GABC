@@ -152,7 +152,7 @@ cd ont-guppy-cpu
 export PATH=$PATH:$(pwd) ## Add guppy to the PATH variable
 ```
 
-**3. If you just need hybrid assembly
+**3. If you just need hybrid assembly**
 ```
 cd /gpfs/scratch/[PSU ACCOUNT]/
 wget https://github.com/tuc289/GABI/raw/main/HBA_packages.txt
