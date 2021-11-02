@@ -1,4 +1,6 @@
 #!/bin/bash
+#Required packages - Tracy (0.6.1 or higher), BLAST+ [Both pacakges are available in bioconda channel]
+
 cd $1
 
 ls *.ab1 > input.txt
