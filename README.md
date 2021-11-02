@@ -184,5 +184,3 @@ export PATH=$PATH:$(pwd) ## Add unicycler to the PATH variable
 ##### Hybrid assembly
 
 ##### Downstream assembly 
-
-#### Automation of the process
