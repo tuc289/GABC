@@ -66,15 +66,20 @@ Since the entire workflow is counting on numerous different bioinformatics packa
 #### Connect to ROAR
 
 1. Connect ROAR via interactive desktop - noVNC 
-  1) connect [ICS-ACI portal](portal.aci.ics.psu.edu) (portal.aci.ics.psu.edu)
-  2) Log in with PSU account name and password
-  3) Click "My Interactive Sessions"
-  4) Click "RHEL7 Interactive Desktop"
-  5) Set up the desktop setting (Allocation, Number of hours, Node type)
-  6) Launch the session (it may take a few minutes to initiate the session
+  - connect [ICS-ACI portal](portal.aci.ics.psu.edu) (portal.aci.ics.psu.edu)
+  - Log in with PSU account name and password
+  - Click "My Interactive Sessions"
+  - Click "RHEL7 Interactive Desktop"
+  - Set up the desktop setting (Allocation, Number of hours, Node type)
+  - Launch the session (it may take a few minutes to initiate the session
 
 2. Connect ROAR via terminal
-  ssh [PSU account name]@submit.aci.ics.psu.edu
+
+```
+
+ssh [PSU account name]@submit.aci.ics.psu.edu
+
+```
   
   For more deatil, please check [Roar Supercoputer Users' Guide](https://www.icds.psu.edu/computing-services/roar-user-guide/)
   
