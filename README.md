@@ -183,4 +183,4 @@ export PATH=$PATH:$(pwd) ## Add unicycler to the PATH variable
 
 ##### [Hybrid assembly](https://github.com/tuc289/GABI/blob/main/hybrid_assembly.md)
 
-##### Downstream assembly 
+##### [Downstream assembly](https://github.com/tuc289/GABI/blob/main/downstream_analysis.md)
