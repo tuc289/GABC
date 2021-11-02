@@ -81,7 +81,6 @@ Since the entire workflow is counting on numerous different bioinformatics packa
 
 ```
 ssh [your PSU ID]@submit.aci.ics.psu.edu
-
 ```
   
   For more deatil, please check [Roar Supercoputer Users' Guide](https://www.icds.psu.edu/computing-services/roar-user-guide/)
@@ -94,7 +93,6 @@ ssh [your PSU ID]@submit.aci.ics.psu.edu
 ID=[your PSU ID]
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh > miniconda-installer.sh
 bash miniconda-installer.sh -b
-
 ```
 
 change directory of installation as '/storage/work/$ID/'
