@@ -61,9 +61,24 @@ The goal of this workflow is to complete different genome assembly and downstrea
 <a name = "install_and_configure"></a>
 ## Installation and configuration
 
-Since the entire workflow is counting on numerous different bioinformatics packages and/or tools, it is important to understand and install correctly for mitigating any potential issues. [Conda](https://docs.conda.io/en/latest/) is a wonderful tool for managing Package, dependency and environment. 
+Since the entire workflow is counting on numerous different bioinformatics packages and programs, it is important to understand and install correctly for mitigating any potential issues. [Conda](https://docs.conda.io/en/latest/) is a wonderful tool for managing Package, dependency and environment. Currently, installation will be done by manual [miniconda](https://docs.conda.io/en/latest/miniconda.html) configuration in user work directory, but it can be changed to build integrated module in ROAR for everyone. 
 
-#### Connect to Roar
+#### Connect to ROAR
+
+1. Connect ROAR via interactive desktop - noVNC 
+  1) connect [ICS-ACI portal](portal.aci.ics.psu.edu) (portal.aci.ics.psu.edu)
+  2) Log in with PSU account name and password
+  3) Click "My Interactive Sessions"
+  4) Click "RHEL7 Interactive Desktop"
+  5) Set up the desktop setting (Allocation, Number of hours, Node type)
+  6) Launch the session (it may take a few minutes to initiate the session
+
+2. Connect ROAR via terminal
+  ssh [PSU account name]@submit.aci.ics.psu.edu
+  
+  For more deatil, please check [Roar Supercoputer Users' Guide](https://www.icds.psu.edu/computing-services/roar-user-guide/)
+  
+ 
 
 #### Install miniconda3 
 
