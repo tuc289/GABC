@@ -82,7 +82,45 @@ Since the entire workflow is counting on numerous different bioinformatics packa
 
 #### Install miniconda3 
 
-#### Set up conda environment with required packages - and additional progeam installation with initial configuration
+```
+
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh > miniconda-installer.sh
+bash miniconda-installer.sh -b
+
+```
+
+change directory of installation as '/storage/work/[PSU account]/'
+
+
+
+Close the terminal and open a new one to make conda activate. You can check the conda installation by typing
+
+
+```
+conda
+```
+
+Add [bioconda](https://bioconda.github.io) and [conda-forge](https://conda-forge.org) channel to the conda package manager
+
+```
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
+
+#### Set up conda environment with required packages - and additional programs installation with initial configuration
+
+Create an environment
+
+```
+conda create -y --name gabi 
+conda activate gabi
+```
+
+Now, you activate your environment called **'gabi'**
+Let's try to install all the required package for i) short-read assembly, ii) long-read assembly, and iii) hybrid-assembly
+
+```
+wget 
 
 #### List of required packages 
 
