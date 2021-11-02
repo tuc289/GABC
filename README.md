@@ -76,8 +76,7 @@ Since the entire workflow is counting on numerous different bioinformatics packa
 2. Connect ROAR via terminal
 
 ```
-
-ssh [PSU account name]@submit.aci.ics.psu.edu
+ssh [your PSU ID]@submit.aci.ics.psu.edu
 
 ```
   
@@ -88,13 +87,13 @@ ssh [PSU account name]@submit.aci.ics.psu.edu
 #### Install miniconda3 
 
 ```
-
+ID=[your PSU ID]
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh > miniconda-installer.sh
 bash miniconda-installer.sh -b
 
 ```
 
-change directory of installation as '/storage/work/[PSU account]/'
+change directory of installation as '/storage/work/$ID/'
 
 
 
@@ -128,7 +127,7 @@ Let's try to install all the required package for i) short-read assembly, ii) lo
 **1. If you just need short read assembly (i.e., illumina reads)**
 
 ```
-cd /gpfs/scratch/[PSU ACCOUNT]/
+cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/SRA_packages.txt 
 conda install --yes --file SRA_packages.txt
 rm SRA_packages.txt
@@ -136,7 +135,7 @@ rm SRA_packages.txt
 ```
 **2. If you just need long read assembly (i.e., nanopore reads)**
 ``` 
-cd /gpfs/scratch/[PSU ACCOUNT]/
+cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/LRA_packages.txt
 conda install --yes --file LRA_packages.txt
 rm LRA_packages.txt
@@ -146,6 +145,7 @@ Unfortunately, ONT basecaller and barcode trimmer **guppy** is not available thr
 **Please be aware that the provided link might *NOT* be linked to the latest version of the software**
 
 ```
+cd /gpfs/scratch/$ID/
 wget https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy-cpu_5.0.16_linux64.tar.gz
 tar -xf ont-guppy_cpu_5.0.16_linux64.tar.gz
 cd ont-guppy-cpu
@@ -154,7 +154,7 @@ export PATH=$PATH:$(pwd) ## Add guppy to the PATH variable
 
 **3. If you just need hybrid assembly**
 ```
-cd /gpfs/scratch/[PSU ACCOUNT]/
+cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/HBA_packages.txt
 conda install --yes --file HBA_packages.txt
 rm HBA_packages.txt
@@ -163,6 +163,7 @@ rm HBA_packages.txt
 Unicycler is an hybrid assembly pipeline for bacterial genoms. This pipeline uses short-read assembly by (**SPAdes**) and long-read assembly by (**miniasm + Racon**) to complete hybrid assembly
 
 ```
+cd /gpfs/scratch/$ID/
 git clone https://github.com/rrwick/Unicycler.git
 cd Unicycler
 make
