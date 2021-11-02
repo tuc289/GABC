@@ -21,7 +21,7 @@ The goal of this workflow is to complete different genome assembly and downstrea
 
 #### Short-read WGS data assembly workflow (required package or tools)
 
-1. Performs basic quality control (**fastqc**)
+1. Performs basic quality control [(**fastqc**)](https://github.com/s-andrews/FastQC)
 2. Trim the adapters and poor-quality bases (**trimmomatic**)
 3. Assemble reads into contigs (**SPAdes**)
 4. Genomic assemblies evaluation and comparison (**QUAST**)
