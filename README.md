@@ -22,32 +22,32 @@ The goal of this workflow is to complete different genome assembly and downstrea
 #### Short-read WGS data assembly workflow (required package or tools)
 
 1. Performs basic quality control [(**fastqc**)](https://github.com/s-andrews/FastQC)
-2. Trim the adapters and poor-quality bases (**trimmomatic**)
-3. Assemble reads into contigs (**SPAdes**)
-4. Genomic assemblies evaluation and comparison (**QUAST**)
-5. Calculating average coverage of the genome (**BWA** and **Samtools**)
+2. Trim the adapters and poor-quality bases [(**trimmomatic**)](https://github.com/usadellab/Trimmomatic)
+3. Assemble reads into contigs [(**SPAdes**)](https://github.com/ablab/spades)
+4. Genomic assemblies evaluation and comparison [(**QUAST**)](https://github.com/ablab/quast)
+5. Calculating average coverage of the genome ([**BWA**](https://github.com/lh3/bwa) and [**Samtools**](https://github.com/samtools/samtools))
 
 #### Long-read WGS data assembly workflow (required package or tools)
 
-1. Performs high accuracy basecalling from FAST5 files (**guppy**)
-2. Trim the adapters, barcodes and poor-quality bases (**guppy**)
-3. (optional) base quality correction (**LorDEC**)
-4. Assemble reads (**Flye**)
-5. Polish and imporve assembly (**Racon**)
-6. Genomic assemblies evaluation and comparison (**QUAST**)
-7. Calculating average coverage of the genome (**BWA** and **Samtools**)
+1. Performs high accuracy basecalling from FAST5 files ([**guppy**](https://community.nanoporetech.com/protocols/Guppy-protocol/v/gpb_2003_v1_revaa_14dec2018/linux-guppy))
+2. Trim the adapters, barcodes and poor-quality bases ([**guppy**](https://community.nanoporetech.com/protocols/Guppy-protocol/v/gpb_2003_v1_revaa_14dec2018/linux-guppy))
+3. (optional) base quality correction ([**LorDEC**](http://www.atgc-montpellier.fr/lordec/))
+4. Assemble reads ([**Flye**](https://github.com/fenderglass/Flye))
+5. Polish and imporve assembly ([**Racon**](https://github.com/isovic/racon))
+6. Genomic assemblies evaluation and comparison [(**QUAST**)](https://github.com/ablab/quast)
+7. Calculating average coverage of the genome ([**BWA**](https://github.com/lh3/bwa) and [**Samtools**](https://github.com/samtools/samtools))
 
 #### Hybrid assembly workflow (required package or tools)
 
 * Start with trimmed reads from both short-read sequencing and long-read sequencing
 
-1. Assemble reads into contigs (**Unicycler** OR **Tricycler + polishing**) 
-2. Genomic assemblies evaluation and comparison (**QUAST**)
-3. Calculating average coverage of the genome (**BWA** and **Samtools**)
+1. Assemble reads into contigs [(**Unicycler** OR **Tricycler + polishing**)](https://github.com/rrwick/Unicycler) 
+2. Genomic assemblies evaluation and comparison [(**QUAST**)](https://github.com/ablab/quast)
+3. Calculating average coverage of the genome ([**BWA**](https://github.com/lh3/bwa) and [**Samtools**](https://github.com/samtools/samtools))
 
 #### Downstream analysis 
 
-1. Detecct genes of interest of *Bacillus cereus* (**Btyper3**)
+1. Detecct genes of interest of *Bacillus cereus* ([**Btyper3**](https://github.com/lmc297/BTyper3))
 2. Identify core SNPs (Single Nucleotide Polymorphism) (**kSNP3**)
 3. Control phylogenetic tree (**IQ-tree2**)
 4. Identify high-quality SNPs using [FDA CFSAN SNP](https://snp-pipeline.readthedocs.io/en/latest/readme.html) pipeline (in **[GalaxyTrakr](https://galaxytrakr.org/root/login?redirect=%2F)**)
@@ -167,8 +167,9 @@ cd /gpfs/scratch/$ID/
 git clone https://github.com/rrwick/Unicycler.git
 cd Unicycler
 make
+export PATH=$PATH:$(pwd) ## Add unicycler to the PATH variable
 ```
-Hopefully, it is all set to run the pipeline to assemble genomes!! 
+***Hopefully, it is all set to run the pipeline to assemble genomes!! ***
 
 ## Workflow
 
