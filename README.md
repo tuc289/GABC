@@ -179,7 +179,7 @@ export PATH=$PATH:$(pwd) ## Add unicycler to the PATH variable
 
 ##### [Short-read assembly](https://github.com/tuc289/GABI/blob/main/short_read_assembly.md)
 
-##### Long-read assembly
+##### [Long-read assembly](https://github.com/tuc289/GABI/blob/main/long_read_assembly.md)
 
 ##### Hybrid assembly
 
