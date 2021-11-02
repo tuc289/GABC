@@ -135,15 +135,17 @@ cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/SRA_packages.txt 
 conda install --yes --file SRA_packages.txt
 rm SRA_packages.txt
-
 ```
+
 **2. If you just need long read assembly (i.e., nanopore reads)**
+
 ``` 
 cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/LRA_packages.txt
 conda install --yes --file LRA_packages.txt
 rm LRA_packages.txt
 ```
+
 Unfortunately, ONT basecaller and barcode trimmer **guppy** is not available through conda installation. If you have an account from [Nanopore community](https://community.nanoporetech.com), you can find the download link from [download page](https://community.nanoporetech.com/downloads), or you can download using below commands 
 
 **Please be aware that the provided link might *NOT* be linked to the latest version of the software**
