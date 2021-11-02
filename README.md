@@ -98,6 +98,7 @@ Close the terminal and open a new one to make conda activate. You can check the 
 
 ```
 conda
+conda update conda #update conda to the latest version
 ```
 
 Add [bioconda](https://bioconda.github.io) and [conda-forge](https://conda-forge.org) channel to the conda package manager
@@ -119,20 +120,49 @@ conda activate gabi
 Now, you activate your environment called **'gabi'**
 Let's try to install all the required package for i) short-read assembly, ii) long-read assembly, and iii) hybrid-assembly
 
+**1. If you just need short read assembly (i.e., illumina reads)**
+
 ```
-wget 
+cd /gpfs/scratch/[PSU ACCOUNT]/
+wget https://github.com/tuc289/GABI/raw/main/SRA_packages.txt 
+conda install --yes --file SRA_packages.txt
+rm SRA_packages.txt
 
-#### List of required packages 
+```
+**2. If you just need long read assembly (i.e., nanopore reads)**
+``` 
+cd /gpfs/scratch/[PSU ACCOUNT]/
+wget https://github.com/tuc289/GABI/raw/main/LRA_packages.txt
+conda install --yes --file LRA_packages.txt
+rm LRA_packages.txt
+```
+Unfortunately, ONT basecaller and barcode trimmer **guppy** is not available through conda installation. If you have an account from [Nanopore community](https://community.nanoporetech.com), you can find the download link from [download page](https://community.nanoporetech.com/downloads), or you can download using below commands 
 
-##### Short-read assembly
+**Please be aware that the provided link might *NOT* be linked to the latest version of the software**
 
-##### Long-read assembly
+```
+wget https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy-cpu_5.0.16_linux64.tar.gz
+tar -xf ont-guppy_cpu_5.0.16_linux64.tar.gz
+cd ont-guppy-cpu
+export PATH=$PATH:$(pwd) ## Add guppy to the PATH variable
+```
 
-##### Hybrid assembly
+**3. If you just need hybrid assembly
+```
+cd /gpfs/scratch/[PSU ACCOUNT]/
+wget https://github.com/tuc289/GABI/raw/main/HBA_packages.txt
+conda install --yes --file HBA_packages.txt
+rm HBA_packages.txt
+```
 
-##### Downstream analysis
+Unicycler is an hybrid assembly pipeline for bacterial genoms. This pipeline uses short-read assembly by (**SPAdes**) and long-read assembly by (**miniasm + Racon**) to complete hybrid assembly
 
-<a name = "workflow"></a>
+```
+git clone https://github.com/rrwick/Unicycler.git
+cd Unicycler
+make
+```
+
 ## Workflow
 
 ##### Short-read assembly
