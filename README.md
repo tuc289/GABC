@@ -27,6 +27,8 @@ The goal of this workflow is to complete different genome assembly and downstrea
 4. Genomic assemblies evaluation and comparison [(**QUAST**)](https://github.com/ablab/quast)
 5. Calculating average coverage of the genome ([**BWA**](https://github.com/lh3/bwa) and [**Samtools**](https://github.com/samtools/samtools))
 
+* short-read assembly workflow was adapted from "FDSC 517 - Microbial genomic epidemiology" offered by Dr. Jasna Kovac 
+
 #### Long-read WGS data assembly workflow (required package or tools)
 
 1. Performs high accuracy basecalling from FAST5 files ([**guppy**](https://community.nanoporetech.com/protocols/Guppy-protocol/v/gpb_2003_v1_revaa_14dec2018/linux-guppy))
@@ -36,6 +38,8 @@ The goal of this workflow is to complete different genome assembly and downstrea
 5. Polish and imporve assembly ([**Racon**](https://github.com/isovic/racon))
 6. Genomic assemblies evaluation and comparison [(**QUAST**)](https://github.com/ablab/quast)
 7. Calculating average coverage of the genome ([**BWA**](https://github.com/lh3/bwa) and [**Samtools**](https://github.com/samtools/samtools))
+
+* Long-read assembly workflow was adapted from CDC [PIMA (Plasmid, Integrations, Mutations, and Antibiotic resistance annonation pipeline)](https://github.com/abconley/pima)
 
 #### Hybrid assembly workflow (required package or tools)
 
