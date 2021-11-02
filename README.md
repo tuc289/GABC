@@ -177,7 +177,7 @@ export PATH=$PATH:$(pwd) ## Add unicycler to the PATH variable
 
 ## Workflow
 
-##### Short-read assembly
+##### [Short-read assembly](https://github.com/tuc289/GABI/blob/main/short_read_assembly.md)
 
 ##### Long-read assembly
 
