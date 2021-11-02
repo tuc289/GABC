@@ -167,6 +167,7 @@ git clone https://github.com/rrwick/Unicycler.git
 cd Unicycler
 make
 ```
+Hopefully, it is all set to run the pipeline to assemble genomes!! 
 
 ## Workflow
 
