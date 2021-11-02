@@ -12,7 +12,7 @@
 
 1. [Getting started](#getting_started)
 2. [Installation and Configuration](#install_and_configure)
-3. [Workflow](#workflow)
+3. [Workflows](#workflow)
 
 <a name = "getting_started"></a>
 ## Getting started
