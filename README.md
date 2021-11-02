@@ -52,13 +52,13 @@ The goal of this workflow is to complete different genome assembly and downstrea
 #### Downstream analysis 
 
 1. Detecct genes of interest of *Bacillus cereus* ([**Btyper3**](https://github.com/lmc297/BTyper3))
-2. Identify core SNPs (Single Nucleotide Polymorphism) (**kSNP3**)
-3. Control phylogenetic tree (**IQ-tree2**)
+2. Identify core SNPs (Single Nucleotide Polymorphism) ([**kSNP3**](https://sourceforge.net/projects/ksnp/files/))
+3. Control phylogenetic tree ([**IQ-tree2**](http://www.iqtree.org))
 4. Identify high-quality SNPs using [FDA CFSAN SNP](https://snp-pipeline.readthedocs.io/en/latest/readme.html) pipeline (in **[GalaxyTrakr](https://galaxytrakr.org/root/login?redirect=%2F)**)
 (GalaxyTrakr is not open to public - it is intended for use by GenomeTrakr laboratories and their collaborators to assist in the analysis of genomic data for foodborne pathogens)
 5. Annonate plasmids (long-read assembly and hybrid assembly only) (**TBD**)
-6. Detect antimicrobial resistance (AMR) genes (**Abricate**, **Megares**)
-7. Whole genome annotation and pangenome analysis (**Prokka**, **Roary**, **Scoary**)
+6. Detect antimicrobial resistance (AMR) genes ([**ABRicate**](https://github.com/tseemann/abricate), [**Megares**](https://megares.meglab.org)(An antimicrobial database))
+7. Whole genome annotation and pangenome analysis ([**Prokka**](https://github.com/tseemann/prokka), [**Roary**](https://github.com/sanger-pathogens/Roary), [**Scoary**](https://github.com/AdmiralenOla/Scoary))
 
 *and many more...*
 
