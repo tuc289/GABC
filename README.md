@@ -39,7 +39,7 @@ The goal of this workflow is to complete different genome assembly and downstrea
 6. Genomic assemblies evaluation and comparison [(**QUAST**)](https://github.com/ablab/quast)
 7. Calculating average coverage of the genome ([**BWA**](https://github.com/lh3/bwa) and [**Samtools**](https://github.com/samtools/samtools))
 
-* Long-read assembly workflow was adapted from CDC [PIMA (Plasmid, Integrations, Mutations, and Antibiotic resistance annonation pipeline)](https://github.com/abconley/pima)
+* Long-read assembly workflow was adapted from [PIMA (Plasmid, Integrations, Mutations, and Antibiotic resistance annonation pipeline)](https://github.com/abconley/pima)
 
 #### Hybrid assembly workflow (required package or tools)
 
