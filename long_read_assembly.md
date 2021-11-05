@@ -13,8 +13,10 @@
 
 <a name = "basecalling"></a>
 ### Performs high accuracy basecalling from FAST5 files (guppy) ###
+<a name = "trim"></a>
+### Trim the adapters, barcodes and poor-quality bases (guppy) ###
 
-Basecalling is the process of generating sequence data with its base quality score (.fastq) from the raw signaling results of the Nanopore MinION sequencer. Guppy is the current basecaller provided from Oxford Nanopore. Basecalling can be completed real-time during the sequencing run, however we can also generate high accuracy reads based on the complicated neural network based basecalling from Guppy. Additionally, Guppy can be used to trim the low quality reads and barcode sequences after basecalling is completed
+Basecalling is the process of generating sequence data with its base quality score (.fastq) from the raw signaling results of the Nanopore MinION sequencer. Guppy is the current basecaller provided from Oxford Nanopore. Basecalling can be completed real-time during the sequencing run, however we can also generate high accuracy reads based on the complicated neural network based basecalling from Guppy. Additionally, Guppy can be used to trim the low quality reads and barcode sequences during basecalling
 
 Input files format - *.fast5*
 output files format - *.fastq*
@@ -61,13 +63,15 @@ Now, specify the input file, output directory, and configuration name (don't for
 
 ```
 guppy_basecaller -i [input.fast5] -s [output directory] 
-                 -c dna_r9.4.1_450bps_hac.cfg --num_callers 2 --cpu_threads_per_caller 1
+                 -c dna_r9.4.1_450bps_hac.cfg --num_callers 2 --cpu_threads_per_caller 1 --trim-barcodes
 ```
 ```
 --num_callers : how many parallel basecallers to create
 --cpu_threads_per_caller : how many threads will be used per each callers
 
 [num_callers] * [cpu_threads_per_caller] = number of available threads
+
+--trim-barcodes : barcode trimming based on the kit information provided
 ```
 
 Now, it will generate multiple *.fastq* file from *.fast5* file in our output directory, you can simply combined all the sequences from *.fastq* files into one *.fastq* file
@@ -78,13 +82,13 @@ cat *.fastq > [output file name].fastq
 
 Now, one huge *.fastq* file is generated as [output file name].fastq
 
-<a name = "trim"></a>
-### Trim the adapters, barcodes and poor-quality bases (guppy) ###
-
-
-
 <a name = "correction"></a>
 ### (optional) base quality correction (LorDEC) ###
+* This step only can be completed if you also have illumina short read sequences as a reference
+
+LorDEC is a program for error correcting in long reads.Since it uses a hybrid strategy, you need the reference read set - whose error rate is low, and the long-read sequence data, which is corrected by the reference set.
+
+
 
 <a name = "flye"></a>
 ### Assemble reads (Flye) ###
