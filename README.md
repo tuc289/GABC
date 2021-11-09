@@ -1,6 +1,6 @@
 # GABI (Genomic Analysis of Bacterial Isolates)
 
-### Genomic Analysis of Bacterial isolates workflow
+### Genomic Analysis of Bacterial Isolates workflow
 
 #### This workflow is designed to complete genome assembly with different sequencing technology
 
