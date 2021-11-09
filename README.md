@@ -1,4 +1,4 @@
-# GABI (Genomic Analysis of Bacterial isolates)
+# GABI (Genomic Analysis of Bacterial Isolates)
 
 ### Genomic Analysis of Bacterial isolates workflow
 
