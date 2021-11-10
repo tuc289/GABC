@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-# I am committing changes
-
-# Do you think it is working?
-
-=======
->>>>>>> 82a8bb25294cb86eb5c80678d1a7286407e2c2b7
 # GABI (Genomic Analysis of Bacterial Isolates)
 
 ### Genomic Analysis of Bacterial Isolates workflow
