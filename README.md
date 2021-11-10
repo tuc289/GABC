@@ -1,5 +1,3 @@
-# Change from local computer
-
 # GABI (Genomic Analysis of Bacterial Isolates)
 
 ### Genomic Analysis of Bacterial Isolates workflow
