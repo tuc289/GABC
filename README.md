@@ -1,5 +1,3 @@
-# Do you think it is working?
-
 # GABI (Genomic Analysis of Bacterial Isolates)
 
 ### Genomic Analysis of Bacterial Isolates workflow
