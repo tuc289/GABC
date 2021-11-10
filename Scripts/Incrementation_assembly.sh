@@ -60,7 +60,7 @@ echo "Used command (flye --nano-raw [.fastq file] --genome-size 5m -o ./ -t 4 -i
 
 ###Polish and improve assembly by Racon ###
 cd assembly_fasta
-for e in *.fasta
+for e in *._contigs.fasta
 do
 	bwa index $e
 	bwa mem -t 4 $e ../${e%_contigs.fasta}.fastq > ${e%_contigs.fasta}.sam
@@ -68,4 +68,12 @@ do
 done
 
 ## Quast assembly evaluation
-quast *._polished.fasta -o quast_results 
+conda activate wgs
+
+## ADD how to extract barcode ID from 'pwd'
+prefix=$(pwd | awk "NF")
+quast *_polished.fasta -o quast_results 
+
+## Collect all the quast reports in one directory 
+
+
