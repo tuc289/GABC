@@ -88,8 +88,6 @@ Now, one huge *.fastq* file is generated as [output file name].fastq
 
 LorDEC is a program for error correcting in long reads.Since it uses a hybrid strategy, you need the reference read set - whose error rate is low, and the long-read sequence data, which is corrected by the reference set.
 
-
-
 <a name = "flye"></a>
 ### Assemble reads (Flye) ###
 
@@ -97,17 +95,17 @@ Flye is a *de novo* assembler for long read sequencing reads (i.e., PacBio or Ox
 
 If you are using raw nanopore reads directly from the run (fast base balled reads)
 ```
-flye --nano-raw [combined raw reads from previous step].fastq --genome-size 5m -o ./ -t 4 -i 5
+flye --nano-raw [combined raw reads from previous step].fastq --genome-size 5m -o ./ -t 4
 ```
 If you are using corrected high accuracy reads from Guppy output
 ```
-flye --nano-hq [combined raw reads from previous step].fastq --genome-size 5m -o ./ -t 4 -i 5
+flye --nano-hq [combined raw reads from previous step].fastq --genome-size 5m -o ./ -t 4
 ```
 
-
-
 <a name = "racon"></a>
-### Polish and imporve assembly (Racon) ###
+### Polish and imporve assembly (Racon, minimap and miniasm) ###
+
+
 
 <a name = "quast"></a>
 ### Genomic assemblies evaluation and comparison (QUAST) ###
