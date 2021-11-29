@@ -93,6 +93,19 @@ LorDEC is a program for error correcting in long reads.Since it uses a hybrid st
 <a name = "flye"></a>
 ### Assemble reads (Flye) ###
 
+Flye is a *de novo* assembler for long read sequencing reads (i.e., PacBio or Oxford Nanopore). It takes raw reads as input and outputs polished contigs. 
+
+If you are using raw nanopore reads directly from the run (fast base balled reads)
+```
+flye --nano-raw [combined raw reads from previous step].fastq --genome-size 5m -o ./ -t 4 -i 5
+```
+If you are using corrected high accuracy reads from Guppy output
+```
+flye --nano-hq [combined raw reads from previous step].fastq --genome-size 5m -o ./ -t 4 -i 5
+```
+
+
+
 <a name = "racon"></a>
 ### Polish and imporve assembly (Racon) ###
 
