@@ -1,4 +1,4 @@
-# Long read assemlby #
+# Long read assembly #
 
 ## Table of Contents ##
 
