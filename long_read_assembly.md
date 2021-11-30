@@ -128,11 +128,11 @@ QUAST (Quality Assessment Tool for Genome Assemblies) is a widely used bioinform
 
 **GC-content** (or guanine-cytosine content) is the percentage of nitrogenous bases in a DNA or RNA molecule that are either guanine (G) or cytosine (C). This measure indicates the proportion of G and C bases out of an implied four total bases, also including adenine and thymine in DNA and adenine and uracil in RNA.
 
-**** Running QUAST ****
+#### Running QUAST ####
 ```
 quast -o [output directory] -i polished_contigs.fasta 
 ```
-**** Output files ****
+#### Output files ####
 ```
 report.txt      summary table
 report.tsv      tab-separated version, for parsing, or for spreadsheets (Google Docs, Excel, etc)  
