@@ -6,7 +6,7 @@
 2. [Trim the adapters, barcodes and poor-quality bases](#trim) ([**guppy**](https://community.nanoporetech.com/protocols/Guppy-protocol/v/gpb_2003_v1_revaa_14dec2018/linux-guppy))
 3. [(optional) base quality correction](#correction) ([**LorDEC**](http://www.atgc-montpellier.fr/lordec/))
 4. [Assemble reads](#flye) ([**Flye**](https://github.com/fenderglass/Flye))
-5. [Polish and imporve assembly](#racon) ([**Racon**](https://github.com/isovic/racon)), ([**minimap2**] (https://github.com/lh3/minimap2))
+5. [Polish and imporve assembly](#racon) ([**Racon**](https://github.com/isovic/racon), [**minimap2**](https://github.com/lh3/minimap2))
 6. [Genomic assemblies evaluation and comparison](#quast) [(**QUAST**)](https://github.com/ablab/quast)
 7. [Calculating average coverage of the genome](#average_coverage) ([**BWA**](https://github.com/lh3/bwa) and [**Samtools**](https://github.com/samtools/samtools))
 8. [automation of the process](#automation)
