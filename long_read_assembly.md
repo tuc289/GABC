@@ -6,7 +6,7 @@
 2. [Trim the adapters, barcodes and poor-quality bases](#trim) ([**guppy**](https://community.nanoporetech.com/protocols/Guppy-protocol/v/gpb_2003_v1_revaa_14dec2018/linux-guppy))
 3. [(optional) base quality correction](#correction) ([**LorDEC**](http://www.atgc-montpellier.fr/lordec/))
 4. [Assemble reads](#flye) ([**Flye**](https://github.com/fenderglass/Flye))
-5. [Polish and imporve assembly](#racon) ([**Racon**](https://github.com/isovic/racon))
+5. [Polish and imporve assembly](#racon) ([**Racon**](https://github.com/isovic/racon)), ([**minimap2**] (https://github.com/lh3/minimap2))
 6. [Genomic assemblies evaluation and comparison](#quast) [(**QUAST**)](https://github.com/ablab/quast)
 7. [Calculating average coverage of the genome](#average_coverage) ([**BWA**](https://github.com/lh3/bwa) and [**Samtools**](https://github.com/samtools/samtools))
 8. [automation of the process](#automation)
@@ -103,12 +103,43 @@ flye --nano-hq [combined raw reads from previous step].fastq --genome-size 5m -o
 ```
 
 <a name = "racon"></a>
-### Polish and imporve assembly (Racon, minimap and miniasm) ###
+### Polish and imporve assembly (Racon, minimap2 and miniasm) ###
 
+In this step, we will use minimap2 to align sequence read against the contigs first, and it will be used for assembly polishing by Racon. 
 
+#### Run minimap2 for alignment ####
+```
+minimap2 -x map-ont -t 4 [output from flye assembler].fasta [Nanopore raw reads].fastq > temporary_path
+```
+
+#### Run Racon for polishing ####
+```
+racon -t 4 [Nanopore raw reads].fastq temporary_path [output from flye assembler].fasta > polished_contigs.fasta
+```
 
 <a name = "quast"></a>
 ### Genomic assemblies evaluation and comparison (QUAST) ###
+
+QUAST (Quality Assessment Tool for Genome Assemblies) is a widely used bioinformatics tool for evaluating genome assemblies. A number of important output will be used to evaluate overall assemlies quality (e.g., N50, Number of contigs, Total length of the assembly, GC%).
+
+![image](https://user-images.githubusercontent.com/62360632/143988245-29693950-a04d-4510-9501-ec9120871451.png)
+
+**N50** is the shortest contig length that needs to be included for covering 50% of the genome. Meaning, Half of the genome sequence is covered by contigs larger than or equal the N50 contig size. Meaning, The sum of the lengths of all contigs of size N50 or longer contain at least 50 percent of the total genome sequence.
+
+**GC-content** (or guanine-cytosine content) is the percentage of nitrogenous bases in a DNA or RNA molecule that are either guanine (G) or cytosine (C). This measure indicates the proportion of G and C bases out of an implied four total bases, also including adenine and thymine in DNA and adenine and uracil in RNA.
+
+**** Running QUAST ****
+```
+quast -o [output directory] -i polished_contigs.fasta 
+```
+**** Output files ****
+```
+report.txt      summary table
+report.tsv      tab-separated version, for parsing, or for spreadsheets (Google Docs, Excel, etc)  
+report.tex      Latex version
+report.pdf      PDF version, includes all tables and plots for some statistics
+report.html     everything in an interactive HTML file
+```
 
 <a name = "average_coverage"></a>
 ### Calculating average coverage of the genome (BWA and Samtools) ###
