@@ -130,7 +130,7 @@ Let's try to install all the required package for i) short-read assembly, ii) lo
 
 ```
 cd /gpfs/scratch/$ID/
-wget https://github.com/tuc289/GABI/raw/main/SRA_packages.txt 
+wget https://github.com/tuc289/GABI/raw/main/SRA_packages
 conda install --yes --file SRA_packages.txt
 rm SRA_packages.txt
 ```
@@ -139,7 +139,7 @@ rm SRA_packages.txt
 
 ``` 
 cd /gpfs/scratch/$ID/
-wget https://github.com/tuc289/GABI/raw/main/LRA_packages.txt
+wget https://github.com/tuc289/GABI/raw/main/LRA_packages
 conda install --yes --file LRA_packages.txt
 rm LRA_packages.txt
 ```
@@ -159,7 +159,7 @@ export PATH=$PATH:$(pwd) ## Add guppy to the PATH variable
 **3. If you just need hybrid assembly**
 ```
 cd /gpfs/scratch/$ID/
-wget https://github.com/tuc289/GABI/raw/main/HBA_packages.txt
+wget https://github.com/tuc289/GABI/raw/main/HBA_packages
 conda install --yes --file HBA_packages.txt
 rm HBA_packages.txt
 ```
