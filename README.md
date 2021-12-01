@@ -91,7 +91,7 @@ ssh [your PSU ID]@submit.aci.ics.psu.edu
 
 ```
 ID=[your PSU ID]
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh >> 
 bash Miniconda3-latest-Linux-x86_64.sh -b
 ```
 
@@ -131,7 +131,7 @@ Let's try to install all the required package for i) short-read assembly, ii) lo
 ```
 cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/SRA_packages
-conda install --yes --file SRA_packages.txt
+conda install --yes --file SRA_packages
 rm SRA_packages.txt
 ```
 
@@ -140,7 +140,7 @@ rm SRA_packages.txt
 ``` 
 cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/LRA_packages
-conda install --yes --file LRA_packages.txt
+conda install --yes --file LRA_packages
 rm LRA_packages.txt
 ```
 
@@ -160,7 +160,7 @@ export PATH=$PATH:$(pwd) ## Add guppy to the PATH variable
 ```
 cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/HBA_packages
-conda install --yes --file HBA_packages.txt
+conda install --yes --file HBA_packages
 rm HBA_packages.txt
 ```
 
