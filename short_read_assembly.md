@@ -72,7 +72,26 @@ spades.py -k 99,127 --isolate -1 <input fastq file 1> -2 <input fastq file 2> -o
 
 <a name = "quast"></a>
 ### Genomic assemblies evaluation and comparison ###
-Assembled genome 
+QUAST (Quality Assessment Tool for Genome Assemblies) is a widely used bioinformatics tool for evaluating genome assemblies. A number of important output will be used to evaluate overall assemlies quality (e.g., N50, Number of contigs, Total length of the assembly, GC%).
+
+![image](https://user-images.githubusercontent.com/62360632/143988245-29693950-a04d-4510-9501-ec9120871451.png)
+
+**N50** is the shortest contig length that needs to be included for covering 50% of the genome. Meaning, Half of the genome sequence is covered by contigs larger than or equal the N50 contig size. Meaning, The sum of the lengths of all contigs of size N50 or longer contain at least 50 percent of the total genome sequence.
+
+**GC-content** (or guanine-cytosine content) is the percentage of nitrogenous bases in a DNA or RNA molecule that are either guanine (G) or cytosine (C). This measure indicates the proportion of G and C bases out of an implied four total bases, also including adenine and thymine in DNA and adenine and uracil in RNA.
+
+#### Running QUAST ####
+```
+quast -o [output directory] -i polished_contigs.fasta 
+```
+#### Output files ####
+```
+report.txt      summary table
+report.tsv      tab-separated version, for parsing, or for spreadsheets (Google Docs, Excel, etc)  
+report.tex      Latex version
+report.pdf      PDF version, includes all tables and plots for some statistics
+report.html     everything in an interactive HTML file
+```
 
 
 <a name = "average_coverage"></a>
