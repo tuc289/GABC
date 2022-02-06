@@ -82,7 +82,7 @@ QUAST (Quality Assessment Tool for Genome Assemblies) is a widely used bioinform
 
 #### Running QUAST ####
 ```
-quast -o [output directory] -i polished_contigs.fasta 
+quast -o <output directory> -i <contigs.fasta>
 ```
 #### Output files ####
 ```
