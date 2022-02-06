@@ -15,18 +15,17 @@
 FastQC provide a simple quality control results on raw sequence data from high throughput sequencing pipelines. fastq file(s) (or fastq.gz file) is required to run FastQC. This can be done before and after quality control to compare the results (i.e., barcode trimming and poor-quality bases elimination).
 
 ```
-for f in *.fastq.gz
-do
-fastqc $f -o fastq_results
+fastqc <input fastq (fastq.gz) file> -o fastq_results
 done
 ```
+
 The analysis in FastQC is performed by a series of analysis modules. The left hand side of the main interactive display or the top of the HTML report show a summary of the modules which were run, and a quick evaluation of whether the results of the module seem entirely normal (green tick), slightly abnormal (orange triangle) or very unusual (red cross).
 
 It is important to stress that although the analysis results appear to give a pass/fail result, these evaluations must be taken in the context of what you expect from your library. A 'normal' sample as far as FastQC is concerned is random and diverse. Some experiments may be expected to produce libraries which are biased in particular ways. You should treat the summary evaluations therefore as pointers to where you should concentrate your attention and understand why your library may not look random and diverse.
 
 ![image](https://user-images.githubusercontent.com/62360632/152664898-81222c69-70c3-45aa-86cf-adaa51d524fc.png)
 
-For each position a BoxWhisker type plot is drawn. The elements of the plot are as follows:
+For each position a Box-Whisker type plot is drawn. The elements of the plot are as follows:
 
 - The central red line is the median value
 - The yellow box represents the inter-quartile range (25-75%)
