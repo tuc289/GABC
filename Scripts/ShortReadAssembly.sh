@@ -3,7 +3,7 @@
 
 #Check dependencies
 echo  "Checking dependencies... "
-for name in trimmomatic bwa samtools spades fastqc multiqc quast
+for name in trimmomatic bwa samtools spades.py fastqc multiqc quast
 do
   [[ $(which $name 2>/dev/null) ]] || { echo "$(tput setaf 1)$name$(tput sgr0) needs to be installed. Use 'conda install -c bioconda $name'";deps=1; }
 done
