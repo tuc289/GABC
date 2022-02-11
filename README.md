@@ -132,7 +132,7 @@ Let's try to install all the required package for i) short-read assembly, ii) lo
 cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/SRA_packages
 conda install --yes --file SRA_packages
-rm SRA_packages.txt
+rm SRA_packages
 ```
 
 **2. If you just need long read assembly (i.e., nanopore reads)**
@@ -141,7 +141,7 @@ rm SRA_packages.txt
 cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/LRA_packages
 conda install --yes --file LRA_packages
-rm LRA_packages.txt
+rm LRA_packages
 ```
 
 Unfortunately, ONT basecaller and barcode trimmer **guppy** is not available through conda installation. If you have an account from [Nanopore community](https://community.nanoporetech.com), you can find the download link from [download page](https://community.nanoporetech.com/downloads), or you can download using below commands 
@@ -161,7 +161,7 @@ export PATH=$PATH:$(pwd) ## Add guppy to the PATH variable
 cd /gpfs/scratch/$ID/
 wget https://github.com/tuc289/GABI/raw/main/HBA_packages
 conda install --yes --file HBA_packages
-rm HBA_packages.txt
+rm HBA_packages
 ```
 
 Unicycler is an hybrid assembly pipeline for bacterial genoms. This pipeline uses short-read assembly by (**SPAdes**) and long-read assembly by (**miniasm + Racon**) to complete hybrid assembly
