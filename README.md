@@ -92,14 +92,10 @@ ssh [your PSU ID]@submit.aci.ics.psu.edu
 ```
 ID=[your PSU ID]
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh >> 
-bash Miniconda3-latest-Linux-x86_64.sh -b
+bash Miniconda3-latest-Linux-x86_64.sh -b -p /storage/work/$ID/miniconda2
+source ~/.bashrc
 ```
-
-change directory of installation as '/storage/work/$ID/'
-
-
-
-Close the terminal and open a new one to make conda activate. You can check the conda installation by typing
+* Downloading nad installing conda in your work path ensure the storage capacity instead of having them in your home directory. 
 
 
 ```
