@@ -52,7 +52,7 @@ do
 	echo "skip ${f%_R1.fastq.gz}"
 	continue
 	fi
-	echo "Running Trimmomatic for ${f%_R1.fastq.gz}"
+	echo "Running Trimmomatic for ${f%_R1_001.fastq.gz}"
 	trimmomatic PE -threads 4 -phred33 $f ${f%_R1_001.fastq.gz}_R2_001.fastq.gz ${f%_R1_001.fastq.gz}_1.trimmedP.fastq.gz ${f%_R1_001.fastq.gz}_1.trimmedS.fastq.gz ${f%_R1_001.fastq.gz}_2.trimmedP.fastq.gz ${f%_R1_001.fastq.gz}_2.trimmedS.fastq.gz ILLUMINACLIP:/gpfs/group/jzk303/default/data/tuc289/rhAMR/amrplusplus_v2/data/adapters/nextera.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 done
 
