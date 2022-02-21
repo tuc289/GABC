@@ -63,7 +63,7 @@ Now, specify the input file, output directory, and configuration name (don't for
 
 ```
 guppy_basecaller -i [input.fast5] -s [output directory] 
-                 -c dna_r9.4.1_450bps_hac.cfg --num_callers 2 --cpu_threads_per_caller 1 --trim-barcodes
+                 -c dna_r9.4.1_450bps_hac.cfg --num_callers 2 --cpu_threads_per_caller 1 --trim_barcodes
 ```
 ```
 --num_callers : how many parallel basecallers to create
@@ -71,7 +71,7 @@ guppy_basecaller -i [input.fast5] -s [output directory]
 
 [num_callers] * [cpu_threads_per_caller] = number of available threads
 
---trim-barcodes : barcode trimming based on the kit information provided
+--trim_barcodes : barcode trimming based on the kit information provided
 ```
 
 Now, it will generate multiple *.fastq* file from *.fast5* file in our output directory, you can simply combined all the sequences from *.fastq* files into one *.fastq* file
