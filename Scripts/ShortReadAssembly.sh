@@ -13,18 +13,18 @@ done
 #If sequences were just out from the sequencer, File name contains "SampleName_S??_R[1,2]_001.fastq.gz", Next few lines will change the name as "SampleName_[1,2].fastq.gz"
 
 cd $1
-#mkdir 1_fastq_raw
-#for f in *_R1_001.fastq.gz
-#do
-#	cp $f 1_fastq_raw
-#	mv $f ${f%_S*_R1_001.fastq.gz}_1.fastq.gz
-#done
+mkdir 1_fastq_raw
+for f in *_R1_001.fastq.gz
+do
+	cp $f 1_fastq_raw
+	mv $f ${f%_S*_R1_001.fastq.gz}_1.fastq.gz
+done
 
-#for f in *_R2_001.fastq.gz
-#do
-#	cp $f 1_fastq_raw
-#	mv $f ${f%_S*_R2_001.fastq.gz}_2.fastq.gz
-#done
+for f in *_R2_001.fastq.gz
+do
+	cp $f 1_fastq_raw
+	mv $f ${f%_S*_R2_001.fastq.gz}_2.fastq.gz
+done
 
 #If you download sequences from NCBi and dump fastq file (as fastq.gz) your filename should be already "SampleName_[1,2].fastq.gz"
 
@@ -45,15 +45,15 @@ done
 
 #Running trimmomatic to trim adapters and remove disqualified reads/bases
 
-for f in *_R1_001.fastq.gz
+for f in *_1.fastq.gz
 do
-	if [ -f "${f%_R1_001.fastq.gz}_R1.trimmedP.fastq.gz}" ]
+	if [ -f "${f%_1.fastq.gz}_1.trimmedP.fastq.gz}" ]
 	then
-	echo "skip ${f%_R1.fastq.gz}"
+	echo "skip ${f%_1.fastq.gz}"
 	continue
 	fi
-	echo "Running Trimmomatic for ${f%_R1_001.fastq.gz}"
-	trimmomatic PE -threads 4 -phred33 $f ${f%_R1_001.fastq.gz}_R2_001.fastq.gz ${f%_R1_001.fastq.gz}_1.trimmedP.fastq.gz ${f%_R1_001.fastq.gz}_1.trimmedS.fastq.gz ${f%_R1_001.fastq.gz}_2.trimmedP.fastq.gz ${f%_R1_001.fastq.gz}_2.trimmedS.fastq.gz ILLUMINACLIP:/gpfs/group/jzk303/default/data/tuc289/rhAMR/amrplusplus_v2/data/adapters/nextera.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+	echo "Running Trimmomatic for ${f%_1.fastq.gz}"
+	trimmomatic PE -threads 4 -phred33 $f ${f%_1.fastq.gz}_2.fastq.gz ${f%_1.fastq.gz}_1.trimmedP.fastq.gz ${f%_1.fastq.gz}_1.trimmedS.fastq.gz ${f%_1.fastq.gz}_2.trimmedP.fastq.gz ${f%_1.fastq.gz}_2.trimmedS.fastq.gz ILLUMINACLIP:/gpfs/group/jzk303/default/data/tuc289/rhAMR/amrplusplus_v2/data/adapters/nextera.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 done
 
 #Running SPAdes to assemble genome
