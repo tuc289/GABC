@@ -2,15 +2,7 @@
 # Purpose of this script is to check the time of initial process of PIMA
 #Usage: pima_time.sh <input directory as barcode##, with all the fast5 file>
 
-export PATH=$PATH:/gpfs/group/jzk303/default/data/CDC_bacilli/programs/ont-guppy-cpu/bin
 
-
-echo "Guppy basecalling starts at $(date)" > guppy_start_time
-guppy_basecaller -i $1 -r -s $1 --num_callers 6 --cpu_threads_per_caller 4 -c dna_r9.4.1_450bps_hac.cfg 
-
-echo "Merge fastq file into one"
-echo "Guppy basecalling ends at $(date)" > guppy_finish_time
-cd $1 
 cat *.fastq > combined.fastq
 
 echo "qcat quality check starts at $(date)" > ../qcat_start_time
