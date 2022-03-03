@@ -10,9 +10,7 @@
 
 conda activate <your directory with program installed>
 export PATH=$PATH:/gpfs/group/jzk303/default/data/CDC_bacilli/programs/ont-guppy/bin
-export PATH=/usr/local/cuda-10.2/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH
-
+module load cuda/11.1.0
 
 echo "Guppy basecalling starts at $(date)" > guppy_start_time
 guppy_basecaller -i $1 -r -s -$1 --num_callers 6 --gpu_runners_per_device 4 -x "cuda:0" --flowcell FLO-MIN106 --kit SQK-RBK004
