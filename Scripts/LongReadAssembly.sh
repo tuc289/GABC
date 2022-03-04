@@ -13,7 +13,7 @@ export PATH=$PATH:/gpfs/group/jzk303/default/data/CDC_bacilli/programs/ont-guppy
 module load cuda/11.1.0
 
 echo "Guppy basecalling starts at $(date)" > guppy_start_time
-guppy_basecaller -i $1 -r -s -$1 --num_callers 6 --gpu_runners_per_device 4 -x "cuda:0" --flowcell FLO-MIN106 --kit SQK-RBK004
+guppy_basecaller -i $1 -r -s $1 --num_callers 6 --gpu_runners_per_device 4 -x "cuda:0" --flowcell FLO-MIN106 --kit SQK-RBK004
 
 
 ## needs to be tested in 3/3/2022, then extend it to the other programs (i.e., qcat, flye, and so on...)
