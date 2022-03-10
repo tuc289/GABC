@@ -44,8 +44,8 @@ Trimmomatic performs a number of useful trimming functions for illumina paired-e
 
 ```
 trimmomatic PE -phred33 input_1.fastq.gz input_2.fastq.gz 
-                        output_trimmedP_1.fastq.gz output_trimmedP_2.fastq.gz 
-                        output_trimmedS_1.fastq.gz output_trimmedS_2.fastq.gz 
+                        output_trimmedP_1.fastq.gz output_trimmedS_1.fastq.gz 
+                        output_trimmedP_2.fastq.gz output_trimmedS_2.fastq.gz 
                         -trimlog log ILLUMINACLIP:<adapter_file>:2:30:10 
                         LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 
 ```
