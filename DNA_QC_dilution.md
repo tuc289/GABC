@@ -4,10 +4,10 @@ Prior to prepare library for MinION, quantity and quality of extracted genomic D
 
 After checking its quality, quantity (concentration) should be matched with its minimum and maximum requirements. The required DNA input is ~400ng in 7.5ul of total volume, which is equivalent as ~53.33ng/uL. In most cases, gDNA needs to be diluted and measured again using Qubit for more accurate quantity measurements
 
-### Table of contents
-#### 1. Export data from Nanodrop One
-#### 2. DNA quality check using custom R script
-#### 3. Calculate dilution factors and volume using custom R script
+## Table of contents
+__1. Export data from Nanodrop One__\
+__2. DNA quality check using custom R script__\
+__3. Calculate dilution factors and volume using custom R script__
 
 --- 
 
@@ -33,3 +33,5 @@ Choose the file type, .csv is required for the downstream procedure.
 
 #### 2. DNA quality check using custom R script
 ```
+
+
