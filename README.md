@@ -10,6 +10,7 @@
 
 ## Table of Contents ##
 
+0. [extracted gDNA quality check and dilution calculation](https://github.com/tuc289/GABI/blob/main/DNA_QC_dilution.md)
 1. [Getting started](#getting_started)
 2. [Installation and Configuration](#install_and_configure)
 3. [Workflows](#workflow)
