@@ -87,5 +87,9 @@ write.csv(final_results, <File name.csv>)
 ```
 
 ### 3. Automation of the process using Rscript ###
+Running this script either under terminal or R(R >4.0.1 required)
 ```
-wget 
+wget https://github.com/tuc289/GABI/raw/main/Scripts/QC_and_dilution.R #Download script
+Rscript QC_and_dilution.R <input path with file name> <Desired total volume after dilution>
+```
+
