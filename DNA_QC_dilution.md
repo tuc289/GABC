@@ -6,8 +6,8 @@ After checking its quality, quantity (concentration) should be matched with its 
 
 ## Table of contents
 __1. Export data from Nanodrop One__\
-__2. DNA quality check using custom R script__\
-__3. Calculate dilution factors and volume using custom R script__
+__2. DNA quality check and calculate dilution factors using custom R script__\
+__3. Automation of the process using Rscript__
 
 --- 
 
@@ -31,7 +31,7 @@ Choose the file type, .csv is required for the downstream procedure.
 
 ---
 
-#### 2. DNA quality check using custom R script
+#### 2. DNA quality check and calculate dilution factors using custom R script 
 1. Import .csv file from NanodropOne to R
 ```
 input <- read.table(<input_file.csv>, sep="\t", quote="", fill=TRUE, fileEncoding="UTF-16le", header=T)
