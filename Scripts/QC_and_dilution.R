@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #r = getOption("repos")
 #r["CRAN"] = "http://cran.us.r-project.org"
 #options(repos = r)
@@ -61,12 +62,33 @@ output_file_path_final <- paste(output_file_path,"/",tools::file_path_sans_ext(t
 #DNA quality check for A260/280 and A260/230
 #1. Concatenate Qubit results and Nanodrop results
 
+=======
+print("Processing started")
+args <- commandArgs(trailingOnly=TRUE)
+
+arguments <- unlist(strsplit(args, " "))
+input_file_path <- arguments[1]
+input_file_name <- unlist(strsplit(input_file_path, "/"))
+output_path <- head(input_file_name, n = length(input_file_name)-1)
+output_path <- do.call(file.path, 
+                       as.list(output_path))
+print(paste("input file is", tail(input_file_name,n=1)))
+
+input <- read.table(input_file_path,sep ="\t", quote="",fill = TRUE, fileEncoding = "UTF-16le", header=T)
+input_trimmed <- input[,2:5]
+
+#DNA quality check for A260/280 and A260/230
+>>>>>>> origin/main
 print("DNA quality check")
 for(i in 1:nrow(input_trimmed)){
   print(input_trimmed[i,1])
   if(1.8 < input_trimmed[i,3] && input_trimmed[i,3] < 2.2) {
     print(paste("A260/280 =",input_trimmed[i,3],"passed the quality creteria"))
+<<<<<<< HEAD
   } 
+=======
+    } 
+>>>>>>> origin/main
   else {
     print(paste("Your", input_trimmed[i,1], "FAILED the quality creteria of A260/280, please consider re-extract gDNA from this isolate"))
   }
@@ -96,7 +118,13 @@ final_results <- cbind(input_trimmed, "dilution factor" = dilution_factor,
                        "amount water (ul)" = water_needed,
                        "amound DNA (ul) for 10ul" = volume_10ul, 
                        "amount water (ul) for 10ul" = water_needed_10ul)
+<<<<<<< HEAD
 write.csv(final_results, output_file_path_final, sep ="")
+=======
+write.csv(final_results, 
+          paste(output_path,"/",tools::file_path_sans_ext(tail(input_file_name,n=1)),
+                "_dilution.csv", sep =""))
+>>>>>>> origin/main
 print("Process finished")
 
 
