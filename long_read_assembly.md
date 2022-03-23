@@ -143,6 +143,20 @@ report.html     everything in an interactive HTML file
 
 <a name = "average_coverage"></a>
 ### Calculating average coverage of the genome (BWA and Samtools) ###
+```
+bwa index <input contigs.fasta>
+bwa mem -t 20 <forward reads.fastq.gz> <reverse reads.fastq.gz> > output.sam # Create SAM file
+samtools view -Sb output.sam -o output.bam 
+
+samtools sort output.bam -o output_sorted.bam
+samtools index output_sorted.bam
+
+X=$(samtools depth output_sorted.bam | awk '{sum+=$3} END { print sum/NR}');
+echo "output_sorted.bam";
+echo "$X";
+echo "output_sorted.bam $X">> average_coverage.txt;
+done
+```
 
 <a name = "automation"></a>
 ### Automation of the process
