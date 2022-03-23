@@ -143,20 +143,35 @@ report.html     everything in an interactive HTML file
 
 <a name = "average_coverage"></a>
 ### Calculating average coverage of the genome (BWA and Samtools) ###
+
+Calculating average coverage of the genome is a process to align raw reads to the assembled contig. By doing this, we can calculate the average coverage by counting number of cumulate based in each position on the contigs.
+
+First off, assembled contig need to be 'indexed', meaning that those sequences will be used as reference in calculating average coverage. Next, raw trimmed reads will be mapped to the indexed reference by bwa. Lastly, calculate average coverage after sorting those mapped reads. 
+
 ```
-bwa index <input contigs.fasta>
-bwa mem -t 20 <forward reads.fastq.gz> <reverse reads.fastq.gz> > output.sam # Create SAM file
-samtools view -Sb output.sam -o output.bam 
+# Indexing contigs
+bwa index <contigs.fasta>
 
-samtools sort output.bam -o output_sorted.bam
-samtools index output_sorted.bam
+# Mapping reads to the indexed contigs
+bwa mem -t <number of threads> <contig.fasta file> <trimmed reads file 1 .fastq> <trimmed reads file .fastq> > <output>.sam
 
-X=$(samtools depth output_sorted.bam | awk '{sum+=$3} END { print sum/NR}');
-echo "output_sorted.bam";
+# Converting SAM file to BAM with samtools
+samtools view -Sb <output>.sam -o <output>.bam
+rm *.sam
+
+#Sorting BAM file with samtools
+samtools sort <output>.bam <output>_sorted.bam
+
+#Indexing sorted BAM file
+samtools index <output>_sorted.bam
+
+#Finally to calculate average coverage
+X=$(samtools depth $<output>_sorted.bam | awk '{sum+=$3} END { print sum/NR}');
+echo "<output>_sorted.bam";
 echo "$X";
-echo "output_sorted.bam $X">> average_coverage.txt;
-done
+echo "<output>_sorted.bam $X" >> average_coverage.txt
 ```
+
 
 <a name = "automation"></a>
 ### Automation of the process
