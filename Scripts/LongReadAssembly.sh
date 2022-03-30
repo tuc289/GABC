@@ -6,7 +6,7 @@
 #PBS -A jzk303_d_g_gc_default
 #PBS -l nodes=1:ppn=24:gpus=1 
 #PBS -l walltime=5:00:00
-#PBS -l pmem=32gb
+#PBS -l pmem=4gb
 
 conda activate <your directory with program installed>
 export PATH=$PATH:/gpfs/group/jzk303/default/data/CDC_bacilli/programs/ont-guppy/bin
