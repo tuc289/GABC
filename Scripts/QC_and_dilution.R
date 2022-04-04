@@ -1,22 +1,24 @@
-<<<<<<< HEAD
-#r = getOption("repos")
-#r["CRAN"] = "http://cran.us.r-project.org"
-#options(repos = r)
+r = getOption("repos")
+r["CRAN"]= "http://cran.us.r-project.org"
+options(repos=r)
 
-#install.packages("optparse", quiet = T)
-library(optparse)
+if(!require(optparse)){
+  intall.packages("optparse", quiet=TRUE)
+  library(optparse)
+}
+
+#Setting up the options and import data
 
 option_list = list(make_option(c("--nanodrop", "-n"), type = "character", 
-                               default= NULL, help="Exported .csv file from Nanodrop", metavar = "path to input .csv file from Nanodrop"),
+                               default= NULL, help="Exported .csv file from Nanodrop"),
                    make_option(c("--qubit", "-q"), type = "character",
-                               default=NULL, help="exported .csv file from Qubit", metavar="path to input .csv file from Qubit"),
+                               default=NULL, help="exported .csv file from Qubit"),
                    make_option(c("--volume", "-v"), type = "integer", 
-                               default = 10, help = "Expected total volume after dilution", metavar="Desired volume"),
+                               default = 10, help = "Expected total volume after dilution"),
                    make_option(c("--output", "-o"), type = "character",
-                               default= NULL, help ="Output filename", metavar = "output file name")
+                               default= "output", help ="Output filename")
 )
-
-opt_parse = OptionParser(option_list=option_list)
+opt_parse <- OptionParser(usage = "Rscript %prog [options] file", option_list=option_list)
 opt = parse_args(opt_parse)
 
 if (is.null(opt$nanodrop)){
@@ -29,102 +31,52 @@ if (is.null(opt$qubit)){
   stop("No Qubit results were provided", call.=FALSE)
 }
 
-if (is.null(opt$output)){
-  print_help(opt_parse)
-  stop("No output filename were provided", call.=FALSE)
+
+#R version check
+if(version$major<4){stop("R version should be at least 4.0.1, please update your R")
+} else {
+    print("Start processing")
 }
 
-print("Processing started")
+#Now check the input data and process them
+#1. nanodrop results
+#1)seperate filename and path (for output)
+input_path <- opt$nanodrop
+output_path <- dirname(input_path)
+output_path_fin <- paste(output_path,"/",opt$output,".csv",sep="")
 
+cat(paste("Your Nanodrop input file is", basename(input_path), seq=""))
+input_nano <- read.table(input_path, sep="\t", quote="", fill=TRUE, fileEncoding = "UTF-16le", header=T)
+input_trimmed <- input_nano[,2:5]
 
-#Input files and arguments as object
-input_file_path <- opt$nanodrop
-input <- read.table(input_file_path,sep ="\t", quote="",fill = TRUE, fileEncoding = "UTF-16le", header=T)
-input_file_name <- unlist(strsplit(input_file_path, "/"))
-input_file_path_without_file_name <- head(input_file_name, n = length(input_file_name)-1)
+input_path_qubit <- opt$qubit
+cat(paste("Your Qubit input file is", basename(input_path_qubit), seq=""))
+input_qubit <- rev(read.table(input_path_qubit, 
+                          sep=",", fill = TRUE, 
+                          fileEncoding = "iso-8859-1", header=T))
+input_trimmed_qubit <- input_qubit[,11]
 
-print(paste("input file for nanodrop measurement is", tail(input_file_name,n=1)))
-input_trimmed <- input[,2:5]
-
-qubit_file_path <- opt$qubit
-qubit_input <- read.table(qubit_file_path, sep="\t", quote="", fill = TRUE, fileEncoding = "UTF-16le", header=T)
-qubit_input_name <- unlist(strsplit(qubit_file_path, "/"))
-qubit_input_file_path_without_file_name <- head(qubit_input_name, n = length(qubit_input_name)-1)
-
-print(paste("input file for qubit measurement is", tail(qubit_input_name, n=1)))
-
-#output
-output_file_path <- opt$output
-output_file_path_final <- paste(output_file_path,"/",tools::file_path_sans_ext(tail(input_file_name,n=1)),
-"_dilution.csv")
-
+final_input <- cbind("SampleID" =input_trimmed[,1], "Concentration" =input_trimmed_qubit, input_trimmed[,3:4])
 
 #DNA quality check for A260/280 and A260/230
-#1. Concatenate Qubit results and Nanodrop results
-
-=======
-print("Processing started")
-args <- commandArgs(trailingOnly=TRUE)
-
-arguments <- unlist(strsplit(args, " "))
-input_file_path <- arguments[1]
-input_file_name <- unlist(strsplit(input_file_path, "/"))
-output_path <- head(input_file_name, n = length(input_file_name)-1)
-output_path <- do.call(file.path, 
-                       as.list(output_path))
-print(paste("input file is", tail(input_file_name,n=1)))
-
-input <- read.table(input_file_path,sep ="\t", quote="",fill = TRUE, fileEncoding = "UTF-16le", header=T)
-input_trimmed <- input[,2:5]
-
-#DNA quality check for A260/280 and A260/230
->>>>>>> origin/main
-print("DNA quality check")
-for(i in 1:nrow(input_trimmed)){
+cat("DNA quality check ...")
+for(i in 1:nrow(input_trimmed))
+  {
   print(input_trimmed[i,1])
   if(1.8 < input_trimmed[i,3] && input_trimmed[i,3] < 2.2) {
     print(paste("A260/280 =",input_trimmed[i,3],"passed the quality creteria"))
-<<<<<<< HEAD
   } 
-=======
-    } 
->>>>>>> origin/main
-  else {
-    print(paste("Your", input_trimmed[i,1], "FAILED the quality creteria of A260/280, please consider re-extract gDNA from this isolate"))
-  }
-  if(1.8 < input_trimmed[i,4] && input_trimmed[i,4] < 2.9) {
-    print(paste("A260/A230 =", input_trimmed[i,4], "passed the quality creteria"))
-  }
-  else {
-    print(paste("Your", input_trimmed[i,1], "FAILED", input_trimmed[i,4],"the quality creteria of A260/230, please consider re-extract gDNA from this isoalte"))
-  }
+} else {
+  print(paste("Your", input_trimmed[i,1], "FAILED the quality creteria of A260/280, please consider re-extract gDNA from this isolate"))
+}if(1.8 < input_trimmed[i,4] && input_trimmed[i,4] < 2.9) {
+  print(paste("A260/A230 =", input_trimmed[i,4], "passed the quality creteria"))
+}else {
+  print(paste("Your", input_trimmed[i,1], "FAILED", input_trimmed[i,4],"the quality creteria of A260/230, please consider re-extract gDNA from this isoalte"))
 }
 
-#Calculate dilution factors and volumes targetting 53.33ng/uL in 10 uL
-print("Dilution calculation")
-volume <- as.numeric(arguments[2])
 
-concentrations <- input_trimmed[,1:2]
-target_concentration <- 53.33
-dilution_factor <- (input_trimmed[,2]/target_concentration)
-volume_10ul <- 10/dilution_factor
-water_needed_10ul <- 10-volume_10ul
-volume_Xul <- volume/dilution_factor
-water_needed <- volume-volume_Xul
 
-final_results <- cbind(input_trimmed, "dilution factor" = dilution_factor,
-                       "target volume" = volume,
-                       "amount DNA (ul)" = volume_Xul, 
-                       "amount water (ul)" = water_needed,
-                       "amound DNA (ul) for 10ul" = volume_10ul, 
-                       "amount water (ul) for 10ul" = water_needed_10ul)
-<<<<<<< HEAD
-write.csv(final_results, output_file_path_final, sep ="")
-=======
-write.csv(final_results, 
-          paste(output_path,"/",tools::file_path_sans_ext(tail(input_file_name,n=1)),
-                "_dilution.csv", sep =""))
->>>>>>> origin/main
-print("Process finished")
+
+
 
 
