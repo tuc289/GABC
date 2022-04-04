@@ -13,8 +13,19 @@
 <a name = "btyper"></a>
 ## Detecct genes of interest of Bacillus cereus ##
 
+Btyper3 is a *in silico* taxonomic classification of *Bacillus cereus* group isolates using assembled genomes. Btyper3 requires an assembled genome contigs in FASTA format. Btyper3 can be used to identify taxonomic classification using ANI (average nucleotide identity), align to the known virulence gene, perform Bt toxin gene alignment to the database, seven-gene multi-locus sequence typing (MLST), *panC* clade typing, and so on.
+
+
+```
+btyper3 -i <contigs.fasta> -o <output directory> 
+```
+
+Btyper3 generate a tab-seperated text file as a report with its species, subspecies, virulence genes, bt toxin genes, pubMLST_ST, adjusted panC group, and final taxon names. 
+
 <a name = "ksnp"></a>
 ## Identify core SNPs (Single Nucleotide Polymorphism) ##
+
+
 
 <a name = "iqtree"></a>
 ## Control phylogenetic tree ##
