@@ -116,7 +116,7 @@ conda config --add channels conda-forge
 Create an environment
 
 ```
-conda create -y --name gabi 
+conda create -y --name gabi python=3.8
 conda activate gabi
 ```
 
