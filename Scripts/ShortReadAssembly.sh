@@ -47,7 +47,7 @@ done
 
 for f in *_1.fastq.gz
 do
-	if [ -f "${f%_1.fastq.gz}_1.trimmedP.fastq.gz}" ]
+	if [ -f "${f%_1.fastq.gz}_1.trimmedP.fastq.gz" ]
 	then
 	echo "skip ${f%_1.fastq.gz}"
 	continue
