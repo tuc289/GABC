@@ -30,6 +30,7 @@ Choose the file type, .csv is required for the downstream procedure.
 ![image](https://user-images.githubusercontent.com/62360632/158447888-607d616a-ca42-4ce4-aca9-28c5b408fbea.png)
 
 ---
+### Please note that Nanodrop results might not be accurate if gDNA concentration is either too high or too low. Please consider using Qubit to check if concentration is accurate before calculating dilution factor 
 
 #### 2. DNA quality check and calculate dilution factors using custom R script 
 1. Import .csv file from NanodropOne to R
