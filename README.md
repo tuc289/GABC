@@ -54,10 +54,10 @@ The goal of this workflow is to complete different genome assemblies and downstr
 
 1. In silico taxonomic classification of *Bacillus cereus* group isolates using assembled genomes ([**Btyper3**](https://github.com/lmc297/BTyper3))
 2. Identify core SNPs (Single Nucleotide Polymorphism) ([**kSNP3**](https://sourceforge.net/projects/ksnp/files/))
-3. Control phylogenetic tree ([**IQ-tree2**](http://www.iqtree.org))
+3. Construct phylogenetic tree ([**IQ-tree2**](http://www.iqtree.org))
 4. Identify high-quality SNPs using [FDA CFSAN SNP](https://snp-pipeline.readthedocs.io/en/latest/readme.html) pipeline (in **[GalaxyTrakr](https://galaxytrakr.org/root/login?redirect=%2F)**)
 (GalaxyTrakr is not open to public - it is intended for use by GenomeTrakr laboratories and their collaborators to assist in the analysis of genomic data for foodborne pathogens)
-5. Annonate plasmids (long-read assembly and hybrid assembly only) (**TBD**)
+5. Annonate plasmids (long-read assembly and hybrid assembly only) ([**PIMA**](https://github.com/abconley/pima)
 6. Detect antimicrobial resistance (AMR) genes ([**ABRicate**](https://github.com/tseemann/abricate), [**Megares**](https://megares.meglab.org)(An antimicrobial database))
 7. Whole genome annotation and pangenome analysis ([**Prokka**](https://github.com/tseemann/prokka), [**Roary**](https://github.com/sanger-pathogens/Roary), [**Scoary**](https://github.com/AdmiralenOla/Scoary))
 
