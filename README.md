@@ -1,6 +1,7 @@
 # GABI (Genomic Analysis of Bacterial Isolates)
-## UNDER DEVELOPMENT ## 
-### Genomic Analysis of Bacterial Isolates workflow
+```diff
+- This pipeline is  under development
+```
 
 #### This workflow is designed to complete genome assembly with different sequencing technology
 
