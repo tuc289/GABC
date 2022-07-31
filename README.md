@@ -3,10 +3,10 @@
 - This pipeline is  under development
 ```
 
-#### This workflow is designed to complete genome assembly with different sequencing technology
+#### This workflow is designed to complete genome assembly with different sequencing platform
 
-1. [illumina](https://www.illumina.com/techniques/sequencing/dna-sequencing/whole-genome-sequencing.html) based short-read whole genome sequencing data 
-2. [Oxford Nanopore (ONT)](https://nanoporetech.com/applications/dna-nanopore-sequencing) based whole genome sequencing data
+1. [illumina](https://www.illumina.com/techniques/sequencing/dna-sequencing/whole-genome-sequencing.html) short-read whole genome sequencing data 
+2. [Oxford Nanopore (ONT)](https://nanoporetech.com/applications/dna-nanopore-sequencing) long-read sequencing data
 3. hybrid assembly using both 1 and 2
 
 ## Table of Contents ##
