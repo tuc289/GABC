@@ -54,7 +54,7 @@ Find the right combination between flowcells and library preparation kits (here,
 
 ```
 flowcell       kit               barcoding config_name                    model version
-FLO-MIN106     SQK-PBK004        included  dna_r9.4.1_450bps_hac          2021-05-17_dna_r9.4.1_minion_384_d37a2ab9
+FLO-MIN106     SQK-RBK004        included  dna_r9.4.1_450bps_hac          2021-05-17_dna_r9.4.1_minion_384_d37a2ab9
 ```
 
 Now, specify the input file, output directory, and configuration name (don't forget to add configuration file extenstion (.cfg) at the end)
